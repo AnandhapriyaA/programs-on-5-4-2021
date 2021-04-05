@@ -1,0 +1,35 @@
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map.Entry;
+import java.util.Scanner;
+public class mains extends UserMainCode {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter length");
+		int len = scan.nextInt();
+		LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
+		System.out.println("enter hashmap");
+		for (int i = 0; i < len; i++) {
+			String key = scan.next();
+			String value = scan.next();
+			map.put(key, value);
+		}
+		System.out.println("enter state");
+		String state = scan.next();
+		getCapital(map, state);
+		scan.close();
+	}
+}
+public class UserMainCode {
+static String getCapital(HashMap<String, String> map, String state) {
+		String result = "";
+		for (Entry<String, String> m : map.entrySet()) {
+			if (m.getKey().equals(state)) {
+				result = m.getValue() + "$" + m.getKey();
+			}
+		}
+		System.out.println(result);
+		return result;
+	}
+}
