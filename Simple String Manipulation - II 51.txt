@@ -1,0 +1,26 @@
+
+import java.util.Scanner;
+public class mains extends UserMainCode {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter string");
+		String string = scan.nextLine();
+		calculateWordSum(string);
+		scan.close();
+	}
+}
+public class UserMainCode {
+static int calculateWordSum(String string) {
+		int result = 0;
+		String[] str = string.split(" ");
+		String first = str[0].toLowerCase();
+		String last = str[str.length - 1].toLowerCase();
+		if (first.equals(last)) {
+			result = first.length();
+		} else {
+			result = str[0].length() + str[str.length - 1].length();
+		}
+		System.out.println(result);
+		return result;
+	}
+}
