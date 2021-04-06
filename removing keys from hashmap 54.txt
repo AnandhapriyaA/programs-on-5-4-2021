@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Scanner;
+public class mains extends UserMainCode {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter length");
+		int len = scan.nextInt();
+		System.out.println("enter hashmap");
+		HashMap<Integer, String> map = new HashMap<>();
+		for (int i = 0; i < len; i++) {
+			int key = scan.nextInt();
+			String value = scan.next();
+			map.put(key, value);
+		}
+		sizeOfResultandHashMap(map);
+		scan.close();
+	}
+}
+public class UserMainCode {
+static int sizeOfResultandHashMap(HashMap<Integer, String> map) {
+		ArrayList<Integer> list = new ArrayList<>();
+		for (Entry<Integer, String> m : map.entrySet()) {
+			if (m.getKey() % 4 != 0) {
+				list.add(m.getKey());
+			}
+		}
+		System.out.println(list.size());
+		return list.size();
+	}
+}
